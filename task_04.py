@@ -1,11 +1,8 @@
-def sort_list(list):
-    if not list:
+def sort_list(int_list):
+    if not int_list:
         return
-    M = max(list)
-    m = min(list)
-    for i in range(len(list)):
-        if list[i] == M:
-            list[i] = m
-        elif list[i] == m:
-            list[i] = M
-    list.append(m)
+    M = max(int_list)
+    m = min(int_list)
+    result = [M if i == m else m if i == M else i for i in int_list]
+    result.append(m)
+    return result
