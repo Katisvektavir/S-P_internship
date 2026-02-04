@@ -1,4 +1,3 @@
-def coincidence(list=[], range=[]):
-    return [i for i in list if (isinstance(i, (int, float)))
-            and (i > range.start)
-            and (i < range.stop)]
+def coincidence(lst=[], interval=[]):
+    return [i for i in lst if (isinstance(i, (int, float)))
+            and interval.start <= i < interval.stop]
