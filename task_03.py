@@ -1,6 +1,6 @@
-def max_odd(array):
+def max_odd(items):
     current_max = 0
-    for i in array:
+    for i in items:
         if (isinstance(i, (int, float))
                 and i % 1 == 0
                 and i % 2 != 0
