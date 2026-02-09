@@ -1,14 +1,18 @@
 import re
 
-def count_words(string):
-    answer = {}
-    string = re.split(" |,|\.|\!|\?|-* |:|;|\"", string)
-    string = list(map(str.lower, string))
-    for i in string:
-        if i in answer:
-            answer[i] += 1
-        else:
-            answer[i] = 1
-    if "" in answer:
-        answer.pop("")
-    return answer
+
+def key_in_dict(dictionary, key):
+    if key == '':
+        return
+    if key in dictionary:
+        dictionary[key] += 1
+    else:
+        dictionary[key] = 1
+
+def count_words(text):
+    result = {}
+    text = re.split(" |,|\.|\!|\?|-* |:|;|\"", text)
+    text = list(map(str.lower, text))
+    for key in text:
+        key_in_dict(result, key)
+    return result
