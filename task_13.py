@@ -12,8 +12,7 @@ class cached():
         if not isinstance(seconds, int):
             self.seconds = None
         else:
-            self.seconds = max_size
-        self.seconds = seconds
+            self.seconds = seconds
         self.cash = {}
 
     def overlimit(self):
@@ -32,7 +31,7 @@ class cached():
             key = str(args) + str(kwargs)
             if (key in self.cash):
                 if ((self.seconds == None) or (datetime.datetime.now() - self.cash[key][1]).total_seconds() < self.seconds):
-                    return self.cash[key][0] + 100
+                    return self.cash[key][0]
             self.overlimit()
             self.cash[key] =[func(*args, **kwargs), datetime.datetime.now()]
             return self.cash[key][0]
