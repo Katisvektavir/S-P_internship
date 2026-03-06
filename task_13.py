@@ -4,16 +4,16 @@ import functools
 
 class cached():
 
-    def __init__(self, max_size=None, second=None):
+    def __init__(self, max_size=None, seconds=None):
         if not isinstance(max_size, int):
             self.max_size = None
         else:
             self.max_size = max_size
-        if not isinstance(second, int):
-            self.second = None
+        if not isinstance(seconds, int):
+            self.seconds = None
         else:
-            self.second = max_size
-        self.second = second
+            self.seconds = max_size
+        self.seconds = seconds
         self.cash = {}
 
     def overlimit(self):
@@ -31,7 +31,7 @@ class cached():
         def wrapper(*args, **kwargs):
             key = str(args) + str(kwargs)
             if (key in self.cash):
-                if ((self.second == None) or (datetime.datetime.now() - self.cash[key][1]).total_seconds() < self.second):
+                if ((self.seconds == None) or (datetime.datetime.now() - self.cash[key][1]).total_seconds() < self.seconds):
                     return self.cash[key][0] + 100
             self.overlimit()
             self.cash[key] =[func(*args, **kwargs), datetime.datetime.now()]
