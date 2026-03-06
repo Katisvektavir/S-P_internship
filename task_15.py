@@ -30,7 +30,7 @@ class BlockTranspositionCipher():
         self.text = None
 
     def key_check(self, key):
-        if not key.isalpha():
+        if not (key.isalpha() and key.isascii()):
             raise ValueError(f"Key must contain only letters (a-z, A-Z). You`r key \"{key}\"")
         if len(key) != len(set(key)):
             raise ValueError(f"Key must consist of unique characters (no repeats). You`r key \"{key}\"")
