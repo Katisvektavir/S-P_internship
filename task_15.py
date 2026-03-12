@@ -3,7 +3,6 @@ class BlockTranspositionCipher():
     def __init__(self, text, key, decrypt=False):
         self.text = text
         self.decrypt = decrypt
-        self.key_check(key)
         key = key.lower()
         self.text_check(text)
         self.key_check(key)
