@@ -49,5 +49,4 @@ class BlockTranspositionCipher():
             if self.encrypt_blocks[-1].isspace() or not self.encrypt_blocks[-1]:
                 self.encrypt_blocks.pop(-1)
             self.encrypt_blocks[-1] = self.encrypt_blocks[-1].rstrip()
-            print(len(self.encrypt_blocks[-1]))
         self.text = "".join(self.encrypt_blocks)
