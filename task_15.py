@@ -1,7 +1,3 @@
-class ValueError(Exception):
-    pass
-
-
 class BlockTranspositionCipher():
 
     def __init__(self, text, key, decrypt=False):
