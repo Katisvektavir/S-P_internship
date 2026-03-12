@@ -13,8 +13,8 @@ class BlockTranspositionCipher():
         return iter(self.encrypt_blocks)
 
     def crypt_rules(self, key):
-        rules = {a: i for i, a in enumerate(sorted((key)))}
-        self.rules = [rules[a] for i, a in enumerate((key))]
+        rules = {a: i for i, a in enumerate(sorted(key))}
+        self.rules = [rules[a] for i, a in enumerate(key)]
         if self.decrypt:
             for i, j in (list(zip(self.rules, [i for i in range(len(key))]))):
                 self.rules[i] = j
